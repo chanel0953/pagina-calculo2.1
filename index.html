@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cálculo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f9f5;
+      color: #080807;
+    }
+    header {
+      background-color: #38c4e7;
+      color: rgb(17, 16, 16);
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #262c2e33;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: rgba(21, 202, 103, 0.932);
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 20px;
+      margin: 15px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+    .ejemplo {
+      background: #eef3f8;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    .quiz {
+      background: #e8f6ef;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    .btn {
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .btn:hover {
+      background-color: #1a252f;
+    }
+    .solucion {
+      display: none;
+      margin-top: 10px;
+      background: #fff;
+      padding: 10px;
+      border-left: 4px solid #2c3e50;
+    }
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    function mostrarSolucion(id) {
+      const elemento = document.getElementById(id);
+      elemento.style.display = elemento.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</head>
+<body>
+
+<header>
+  <h1>✖➗Página Web de Cálculo➖➕</h1>
+  <p>Teoría, ejemplos resueltos y práctica interactiva</p>
+  <p><h3>Bienvenido a esta página web de Cálculo, creada para ayudarte a comprender de forma clara, práctica y visual los principales temas del curso. Aquí encontrarás explicaciones sencillas, ejemplos resueltos paso a paso, ejercicios interactivos y recursos gráficos que facilitan el aprendizaje. Esta plataforma está diseñada para que refuerces tus conocimientos, practiques a tu ritmo y te prepares con confianza para tus evaluaciones.</h3></p>
+</header>
+
+<nav>
+  <a href="#tema1">Diferencial</a>
+  <a href="#tema2">Modelos</a>
+  <a href="#tema3">Notación Suma</a>
+  <a href="#tema4">Áreas</a>
+  <a href="#tema5">Integral Definida</a>
+  <a href="#tema6">Valor Medio</a>
+  <a href="#tema7">Teorema Fundamental</a>
+  <a href="#tema8">Sustitución</a>
+  <a href="#tema9">Por Partes</a>
+  <a href="#tema10">Trigonométricas</a>
+  <a href="#tema11">Otras Integrales</a>
+</nav>
+
+<section id="tema1">
+  <h2>1. La diferencial de una función</h2>
+  <img src="imagencalculo1.png" alt="Diferencial de una función">
+  <p>La diferencial de una función aproxima cambios pequeños en la variable independiente y su efecto en la dependiente.La diferencial de una función es una herramienta matemática que permite aproximar cómo cambia una función cuando su variable independiente sufre una pequeña variación. En otras palabras, nos ayuda a estimar cambios en la función usando la pendiente de la recta tangente, lo cual es muy útil en problemas de aproximación, análisis de errores y aplicaciones prácticas en ciencias e ingeniería.</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 </h3>
+    <p>Si f(x) = x², hallar la diferencial cuando x = 3 y dx = 0.1.</p>
+    <button class="btn" onclick="mostrarSolucion('sol1')">Ver solución</button>
+    <div class="solucion" id="sol1">
+      <p>f'(x) = 2x → f'(3) = 6</p>
+      <p>df = f'(x)·dx = 6·0.1 = 0.6</p>
+      <p><strong>Resultado:</strong> df = 0.6</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 </h3>
+    <p>Si y = √x, hallar dy cuando x = 9 y dx = 0.2.</p>
+    <button class="btn" onclick="mostrarSolucion('sol2')">Ver solución</button>
+    <div class="solucion" id="sol2">
+      <p>y = x^{1/2} → dy/dx = 1/(2√x)</p>
+      <p>dy = (1/(2√9))·0.2 = (1/6)·0.2 ≈ 0.0333</p>
+      <p><strong>Resultado:</strong> dy ≈ 0.0333</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 </h3>
+    <p>Si z = x²y + 3y², hallar dz cuando x = 1, y = 2, dx = 0.1 y dy = 0.05.</p>
+    <button class="btn" onclick="mostrarSolucion('sol3')">Ver solución</button>
+    <div class="solucion" id="sol3">
+      <p>∂z/∂x = 2xy, ∂z/∂y = x² + 6y</p>
+      <p>dz = (2xy)dx + (x² + 6y)dy</p>
+      <p>dz = (2·1·2)(0.1) + (1 + 12)(0.05)</p>
+      <p>dz = 0.4 + 0.65 = 1.05</p>
+      <p><strong>Resultado:</strong> dz = 1.05</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Si f(x) = 3x², ¿cuál es df cuando x = 2 y dx = 0.1?</p>
+    <button class="btn" onclick="mostrarSolucion('quiz1')">Ver respuesta</button>
+    <div class="solucion" id="quiz1">
+      <p>f'(x) = 6x → f'(2) = 12 → df = 12·0.1 = 1.2</p>
+    </div>
+  </div>
+</section>
+
+<section id="tema2">
+  <h2>2. Modelos basados en la diferencial y análisis de errores</h2>
+  <img src="imagen2.png" alt="Análisis de errores">
+  <p>Este tema estudia cómo usar las diferenciales para aproximar errores en mediciones y cálculos, permitiendo evaluar la precisión de resultados en problemas reales de física, ingeniería y otras ciencias.</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 </h3>
+    <p>El radio de una esfera es 10 cm con un error de ±0.1 cm. Aproximar el error en el volumen.</p>
+    <button class="btn" onclick="mostrarSolucion('sol4')">Ver solución</button>
+    <div class="solucion" id="sol4">
+      <p>V = (4/3)πr³ → dV = 4πr² dr</p>
+      <p>dV = 4π(10²)(0.1) = 40π ≈ 125.66 cm³</p>
+      <p><strong>Error aproximado:</strong> ±125.66 cm³</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 </h3>
+    <p>Un cuadrado tiene lado 5 m con error ±0.02 m. Aproximar el error en el área.</p>
+    <button class="btn" onclick="mostrarSolucion('sol5')">Ver solución</button>
+    <div class="solucion" id="sol5">
+      <p>A = x² → dA = 2x dx</p>
+      <p>dA = 2(5)(0.02) = 0.2 m²</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 </h3>
+    <p>Si P = xy², x = 4 ± 0.1, y = 2 ± 0.05, aproximar el error en P.</p>
+    <button class="btn" onclick="mostrarSolucion('sol6')">Ver solución</button>
+    <div class="solucion" id="sol6">
+      <p>dP = y² dx + 2xy dy</p>
+      <p>dP = (2²)(0.1) + 2(4)(2)(0.05) = 0.4 + 0.8 = 1.2</p>
+      <p><strong>Error aproximado:</strong> ±1.2</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Si A = x² y x = 3 ± 0.1, ¿cuál es el error aproximado en A?</p>
+    <button class="btn" onclick="mostrarSolucion('quiz2')">Ver respuesta</button>
+    <div class="solucion" id="quiz2">
+      <p>dA = 2x dx = 2(3)(0.1) = 0.6</p>
+    </div>
+  </div>
+</section>
+
+<section id="tema3">
+  <h2>3. La notación suma</h2>
+  <img src="imagen3.jpg" alt="Notación sigma">
+  <p>La notación sigma (Σ) es una forma compacta de representar sumas repetitivas, especialmente útil para trabajar con series, patrones numéricos y aproximaciones de áreas bajo curvas.</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 </h3>
+    <p>Calcular Σ(i=1 a 5) i.</p>
+    <button class="btn" onclick="mostrarSolucion('sol7')">Ver solución</button>
+    <div class="solucion" id="sol7">
+      <p>1 + 2 + 3 + 4 + 5 = 15</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 (Medio)</h3>
+    <p>Calcular Σ(i=1 a 4) i².</p>
+    <button class="btn" onclick="mostrarSolucion('sol8')">Ver solución</button>
+    <div class="solucion" id="sol8">
+      <p>1² + 2² + 3² + 4² = 1 + 4 + 9 + 16 = 30</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 </h3>
+    <p>Calcular Σ(i=1 a n) (2i + 3).</p>
+    <button class="btn" onclick="mostrarSolucion('sol9')">Ver solución</button>
+    <div class="solucion" id="sol9">
+      <p>Σ(2i + 3) = 2Σi + 3Σ1 = 2(n(n+1)/2) + 3n = n(n+1) + 3n = n² + 4n</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Calcular Σ(i=1 a 3) (i + 2).</p>
+    <button class="btn" onclick="mostrarSolucion('quiz3')">Ver respuesta</button>
+    <div class="solucion" id="quiz3">
+      <p>(1+2) + (2+2) + (3+2) = 3 + 4 + 5 = 12</p>
+    </div>
+  </div>
+</section>
+
+<section id="tema4">
+  <h2>4. Áreas bajo curvas</h2>
+  <img src="imagen4.png" alt="Área bajo la curva">
+  <p>Este tema se centra en el cálculo del área entre una función y el eje horizontal mediante integrales definidas, lo que permite interpretar visualmente el significado de la integral.</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 </h3>
+    <p>Calcular el área bajo f(x) = x entre 0 y 2.</p>
+    <button class="btn" onclick="mostrarSolucion('sol10')">Ver solución</button>
+    <div class="solucion" id="sol10">
+      <p>∫₀² x dx = [x²/2]₀² = 4/2 = 2</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 </h3>
+    <p>Calcular el área bajo f(x) = 3x² entre 1 y 3.</p>
+    <button class="btn" onclick="mostrarSolucion('sol11')">Ver solución</button>
+    <div class="solucion" id="sol11">
+      <p>∫₁³ 3x² dx = [x³]₁³ = 27 − 1 = 26</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 </h3>
+    <p>Hallar el área entre y = x² y el eje x entre x = −2 y x = 2.</p>
+    <button class="btn" onclick="mostrarSolucion('sol12')">Ver solución</button>
+    <div class="solucion" id="sol12">
+      <p>Área = ∫_{−2}^{2} x² dx = [x³/3]_{−2}^{2} = (8/3) − (−8/3) = 16/3</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Calcular ∫₀¹ 4x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('quiz4')">Ver respuesta</button>
+    <div class="solucion" id="quiz4">
+      <p>[2x²]₀¹ = 2</p>
+    </div>
+  </div>
+</section>
+
+<section id="tema5">
+  <h2>5. La integral definida y sus propiedades</h2>
+  <img src="imagen5.png" alt="Integral definida">
+  <p>La integral definida permite calcular cantidades acumuladas como áreas, distancias y volúmenes, y posee propiedades que facilitan su resolución mediante reglas algebraicas.</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 </h3>
+    <p>Calcular ∫₂⁵ 1 dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol13')">Ver solución</button>
+    <div class="solucion" id="sol13">
+      <p>∫₂⁵ 1 dx = [x]₂⁵ = 5 − 2 = 3</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 </h3>
+    <p>Calcular ∫₀² (2x + 1) dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol14')">Ver solución</button>
+    <div class="solucion" id="sol14">
+      <p>[x² + x]₀² = (4 + 2) − 0 = 6</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 </h3>
+    <p>Usando propiedades, calcular ∫₁⁴ (3f(x) − 2g(x)) dx si ∫₁⁴ f(x) dx = 5 y ∫₁⁴ g(x) dx = 2.</p>
+    <button class="btn" onclick="mostrarSolucion('sol15')">Ver solución</button>
+    <div class="solucion" id="sol15">
+      <p>∫₁⁴ (3f − 2g) dx = 3∫₁⁴ f dx − 2∫₁⁴ g dx = 3(5) − 2(2) = 15 − 4 = 11</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Calcular ∫₁³ 2x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('quiz5')">Ver respuesta</button>
+    <div class="solucion" id="quiz5">
+      <p>[x²]₁³ = 9 − 1 = 8</p>
+    </div>
+  </div>
+</section>
+
+<section id="tema6">
+  <h2>6. El teorema del valor medio para integrales</h2>
+  <img src="imagen6.png" alt="Teorema del valor medio">
+  <p>Este teorema afirma que existe al menos un punto en un intervalo donde la función alcanza su valor promedio, conectando el valor de una función con el área bajo su gráfica.</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 </h3>
+    <p>Si f(x) = x en [0, 2], hallar el valor medio.</p>
+    <button class="btn" onclick="mostrarSolucion('sol16')">Ver solución</button>
+    <div class="solucion" id="sol16">
+      <p>Valor medio = (1/(2−0)) ∫₀² x dx = (1/2)(2) = 1</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 </h3>
+    <p>Hallar el valor medio de f(x) = x² en [1, 3].</p>
+    <button class="btn" onclick="mostrarSolucion('sol17')">Ver solución</button>
+    <div class="solucion" id="sol17">
+      <p>Valor medio = (1/2) ∫₁³ x² dx = (1/2)[x³/3]₁³ = (1/2)(26/3) = 13/3</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 </h3>
+    <p>Si f(x) = cos x en [0, π], hallar c tal que f(c) sea el valor medio.</p>
+    <button class="btn" onclick="mostrarSolucion('sol18')">Ver solución</button>
+    <div class="solucion" id="sol18">
+      <p>Valor medio = (1/π) ∫₀^π cos x dx = (1/π)[sin x]₀^π = 0</p>
+      <p>cos c = 0 → c = π/2</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Hallar el valor medio de f(x) = 2x en [0, 4].</p>
+    <button class="btn" onclick="mostrarSolucion('quiz6')">Ver respuesta</button>
+    <div class="solucion" id="quiz6">
+      <p>Valor medio = (1/4) ∫₀⁴ 2x dx = (1/4)(16) = 4</p>
+    </div>
+  </div>
+</section>
+
+<section id="tema7">
+  <h2>7. Teorema fundamental del cálculo</h2>
+  <img src="imagen7.png" alt="Teorema fundamental del cálculo">
+  <p>Este teorema relaciona la derivación con la integración, mostrando que ambas operaciones son inversas y permitiendo calcular integrales usando antiderivadas.</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 </h3>
+    <p>Si F(x) = x³, hallar ∫₁² 3x² dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol19')">Ver solución</button>
+    <div class="solucion" id="sol19">
+      <p>∫₁² 3x² dx = [x³]₁² = 8 − 1 = 7</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 </h3>
+    <p>Calcular ∫₀^π sin x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol20')">Ver solución</button>
+    <div class="solucion" id="sol20">
+      <p>[−cos x]₀^π = (−cos π) − (−cos 0) = 1 − (−1) = 2</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 </h3>
+    <p>Si G(x) = ∫₁^x (t² + 1) dt, hallar G'(x).</p>
+    <button class="btn" onclick="mostrarSolucion('sol21')">Ver solución</button>
+    <div class="solucion" id="sol21">
+      <p>Por el TFC: G'(x) = x² + 1</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Calcular ∫₂⁴ 4x³ dx.</p>
+    <button class="btn" onclick="mostrarSolucion('quiz7')">Ver respuesta</button>
+    <div class="solucion" id="quiz7">
+      <p>[x⁴]₂⁴ = 256 − 16 = 240</p>
+    </div>
+  </div>
+</section>
+
+<section id="tema8">
+  <h2>8. Método de sustitución</h2>
+  <img src="imagen8.png" alt="Método de sustitución">
+  <p>El método de sustitución es una técnica de integración que simplifica integrales mediante un cambio de variable, facilitando la resolución de expresiones complejas.</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 </h3>
+    <p>Calcular ∫ 2x cos(x²) dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol22')">Ver solución</button>
+    <div class="solucion" id="sol22">
+      <p>u = x² → du = 2x dx → ∫ cos u du = sin u + C = sin(x²) + C</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 </h3>
+    <p>Calcular ∫ x e^{x²} dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol23')">Ver solución</button>
+    <div class="solucion" id="sol23">
+      <p>u = x² → du = 2x dx → (1/2)∫ e^u du = (1/2)e^{x²} + C</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 </h3>
+    <p>Calcular ∫ (3x²)/(x³ + 1) dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol24')">Ver solución</button>
+    <div class="solucion" id="sol24">
+      <p>u = x³ + 1 → du = 3x² dx → ∫ du/u = ln|u| + C = ln|x³ + 1| + C</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Calcular ∫ 4x e^{2x²} dx.</p>
+    <button class="btn" onclick="mostrarSolucion('quiz8')">Ver respuesta</button>
+    <div class="solucion" id="quiz8">
+      <p>u = 2x² → du = 4x dx → ∫ e^u du = e^{2x²} + C</p>
+    </div>
+  </div>
+</section>
+
+<section id="tema9">
+  <h2>9. Integración por partes</h2>
+  <img src="imagen9.png" alt="Integración por partes">
+  <p>Este método se utiliza para integrar productos de funciones, basándose en la fórmula ∫ u dv = uv − ∫ v du, y es especialmente útil en integrales con polinomios, exponenciales y logaritmos.</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 </h3>
+    <p>Calcular ∫ x e^x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol25')">Ver solución</button>
+    <div class="solucion" id="sol25">
+      <p>u = x, dv = e^x dx → du = dx, v = e^x</p>
+      <p>∫ x e^x dx = x e^x − ∫ e^x dx = x e^x − e^x + C = e^x(x − 1) + C</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 </h3>
+    <p>Calcular ∫ x sin x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol26')">Ver solución</button>
+    <div class="solucion" id="sol26">
+      <p>u = x, dv = sin x dx → du = dx, v = −cos x</p>
+      <p>∫ x sin x dx = −x cos x + ∫ cos x dx = −x cos x + sin x + C</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 </h3>
+    <p>Calcular ∫ x² e^x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol27')">Ver solución</button>
+    <div class="solucion" id="sol27">
+      <p>Aplicar integración por partes dos veces:</p>
+      <p>u = x², dv = e^x dx → ∫ x² e^x dx = x² e^x − ∫ 2x e^x dx</p>
+      <p>Luego ∫ 2x e^x dx = 2(x e^x − e^x)</p>
+      <p>Resultado final: e^x(x² − 2x + 2) + C</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Calcular ∫ ln x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('quiz9')">Ver respuesta</button>
+    <div class="solucion" id="quiz9">
+      <p>u = ln x, dv = dx → du = 1/x dx, v = x → ∫ ln x dx = x ln x − x + C</p>
+    </div>
+  </div>
+</section>
+
+<section id="tema10">
+  <h2>10. Integrales que incluyen potencias de seno y coseno</h2>
+  <img src="imagen10.png" alt="Integrales trigonométricas">
+  <p>Este tema aborda integrales trigonométricas que requieren el uso de identidades y técnicas especiales para su correcta resolución.</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 (Básico)</h3>
+    <p>Calcular ∫ sin² x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol28')">Ver solución</button>
+    <div class="solucion" id="sol28">
+      <p>sin² x = (1 − cos 2x)/2 → ∫ (1/2 − cos 2x/2) dx = x/2 − sin 2x/4 + C</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 (Medio)</h3>
+    <p>Calcular ∫ cos³ x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol29')">Ver solución</button>
+    <div class="solucion" id="sol29">
+      <p>cos³ x = cos² x · cos x = (1 − sin² x) cos x</p>
+      <p>u = sin x → du = cos x dx → ∫ (1 − u²) du = u − u³/3 + C = sin x − sin³ x/3 + C</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 (Avanzado)</h3>
+    <p>Calcular ∫ sin² x cos² x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol30')">Ver solución</button>
+    <div class="solucion" id="sol30">
+      <p>sin² x cos² x = (1/4) sin² 2x = (1/8)(1 − cos 4x)</p>
+      <p>∫ (1/8)(1 − cos 4x) dx = x/8 − sin 4x/32 + C</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Calcular ∫ sin x cos x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('quiz10')">Ver respuesta</button>
+    <div class="solucion" id="quiz10">
+      <p>u = sin x → du = cos x dx → ∫ u du = u²/2 + C = sin² x/2 + C</p>
+    </div>
+  </div>
+</section>
+
+<section id="tema11">
+  <h2>11. Integrales que incluyen otras funciones</h2>
+  <img src="imagen10.png" alt="Integrales con otras funciones">
+  <p>Incluye integrales con funciones exponenciales, logarítmicas y racionales, aplicando métodos como sustitución, fracciones parciales y reglas básicas de integración..</p>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 1 </h3>
+    <p>Calcular ∫ e^x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol31')">Ver solución</button>
+    <div class="solucion" id="sol31">
+      <p>∫ e^x dx = e^x + C</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 2 </h3>
+    <p>Calcular ∫ ln x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol32')">Ver solución</button>
+    <div class="solucion" id="sol32">
+      <p>u = ln x, dv = dx → du = 1/x dx, v = x → x ln x − x + C</p>
+    </div>
+  </div>
+
+  <div class="ejemplo">
+    <h3>Ejemplo 3 </h3>
+    <p>Calcular ∫ (2x + 1)/(x² + x) dx.</p>
+    <button class="btn" onclick="mostrarSolucion('sol33')">Ver solución</button>
+    <div class="solucion" id="sol33">
+      <p>Descomposición en fracciones parciales:</p>
+      <p>(2x + 1)/(x(x+1)) = 1/x + 1/(x+1)</p>
+      <p>∫ (1/x + 1/(x+1)) dx = ln|x| + ln|x+1| + C</p>
+    </div>
+  </div>
+
+  <div class="quiz">
+    <h3>Quiz rápido</h3>
+    <p>Calcular ∫ 1/x dx.</p>
+    <button class="btn" onclick="mostrarSolucion('quiz11')">Ver respuesta</button>
+    <div class="solucion" id="quiz11">
+      <p>∫ 1/x dx = ln|x| + C</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>📐 Página educativa de Cálculo — Teoría, práctica </p>
+</footer>
+
+</body>
+</html>
